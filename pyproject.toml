@@ -1,0 +1,27 @@
+[project]
+name = "kairox"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Gabedf",email = "gabdwork@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit (>=1.51.0,<2.0.0)",
+    "polars (>=1.35.1,<2.0.0)",
+    "duckdb (>=1.4.1,<2.0.0)",
+    "itables (>=2.5.2,<3.0.0)",
+    "plotly-express (>=0.4.1,<0.5.0)",
+    "nbformat (>=5.10.4,<6.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.1.0,<8.0.0)"
+]
