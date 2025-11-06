@@ -44,7 +44,10 @@ def main():
             yaxis=dict(showgrid=False)
         )
 
+
         with st.container(border=True):
+            st.dataframe(df_player)
+            
             st.header(f'{player_name} Stats over the time')
             c1, c2 = st.columns([1, 1])
             with c1:
