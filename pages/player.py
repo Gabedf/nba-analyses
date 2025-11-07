@@ -29,7 +29,7 @@ def player_page():
         
         try:
             file_name = player_name.replace(" ", "_") + ".png"
-            st.image(f"imagens_jogadores/{file_name}")
+            st.image(f"data/images/players/{file_name}")
         except Exception as e:
             print(e)
 
