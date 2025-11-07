@@ -1,18 +1,18 @@
 import streamlit as st
-import polars as pl
-
-from utils.player import PlayerFeats
-from plots.basePlot import BasePlot
-
-# Configurações da página
-plots  = BasePlot()
-player = PlayerFeats()
-
 st.set_page_config(
     page_title="NBA Project",
     page_icon="🏀",
     layout="wide",
 )
+
+import polars as pl
+from pathlib import Path
+
+from utils.player import PlayerFeats
+from plots.basePlot import BasePlot
+
+plots  = BasePlot()
+player = PlayerFeats()
 
 def player_page():
     df = pl.read_parquet('data/nba_database.parquet')
@@ -26,12 +26,15 @@ def player_page():
         
         plot = plots.basicLinesChart(df_player, ["PTS", "AST", "3PA"])
         perc = plots.basicLinesChart(df_player, ["FG%", "TOV", "3P%"])
-        
+
         try:
-            file_name = player_name.replace(" ", "_") + ".png"
-            st.image(f"./data/images/players/{file_name}")
+            ROOT = Path(__file__).resolve().parent.parent
+            IMAGES_DIR = ROOT / "data" / "images" / "players"
+            file_name = player_name.replace(" ", "-") + ".png"
+            image_path = IMAGES_DIR / file_name
+            st.image(str(image_path))
         except Exception as e:
-            print(e)
+            st.warning(f"Image not found: {image_path}")
 
         st.header(f'{player_name} Stats over the time')
         with st.expander(label="Table Stats Game", expanded=False):
