@@ -1,10 +1,4 @@
 import streamlit as st
-st.set_page_config(
-    page_title="NBA Project",
-    page_icon="🏀",
-    layout="wide",
-)
-
 import polars as pl
 from pathlib import Path
 

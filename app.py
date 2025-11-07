@@ -1,5 +1,6 @@
 # app.py
 import streamlit as st
+st.set_page_config(page_title="NBA Project", page_icon="🏀", layout="wide")
 
 from pages.geral import geral_page
 from pages.player import player_page
