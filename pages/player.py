@@ -30,7 +30,7 @@ def player_page():
         try:
             ROOT = Path(__file__).resolve().parent.parent
             IMAGES_DIR = ROOT / "data" / "images" / "players"
-            file_name = player_name.replace(" ", "-") + ".png"
+            file_name = player_name.replace(" ", "_") + ".png"
             image_path = IMAGES_DIR / file_name
             st.image(str(image_path))
         except Exception as e:
