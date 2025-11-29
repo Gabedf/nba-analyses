@@ -5,7 +5,7 @@ st.set_page_config(page_title="NBA Project", page_icon="🏀", layout="wide")
 from pages.geral import geral_page
 from pages.player import player_page
 
-pages = [st.Page(geral_page, title='Geral Page', icon=":material/home:"),
+pages = [
          st.Page(player_page, title='Player Stats', icon=':material/bar_chart:'),
         ]
 page = st.navigation(pages, position='top')
